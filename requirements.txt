@@ -1,0 +1,14 @@
+pymupdf
+pdfplumber
+pytesseract
+Pillow
+nltk
+scikit-learn
+networkx
+google-generativeai
+streamlit
+transformers
+torch
+flask
+rouge-score
+psutil

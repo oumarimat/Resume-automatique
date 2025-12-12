@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-file-pdf"></i>
+                <h1>PDF Summarizer <span>Pro</span></h1>
+            </div>
+            <p class="subtitle">Transformez vos documents en résumés clairs et concis grâce à l'IA.</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="drop-zone">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Glissez-déposez votre PDF ici</h3>
+                    <p>ou</p>
+                    <label for="file-upload" class="custom-file-upload">
+                        Parcourir les fichiers
+                    </label>
+                    <input id="file-upload" type="file" accept=".pdf" />
+                    <p class="file-name" id="file-name"></p>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <div class="setting-group">
+                    <label>Type de Résumé</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="extractive" name="summary_type" value="extractive">
+                        <label for="extractive">Extractif</label>
+                        
+                        <input type="radio" id="abstractive" name="summary_type" value="abstractive">
+                        <label for="abstractive">Abstractif</label>
+                        
+                        <input type="radio" id="hybrid" name="summary_type" value="hybrid" checked>
+                        <label for="hybrid">Hybride</label>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <label>Précision (Taille de Jeton)</label>
+                    <select id="chunk_size">
+                        <option value="1000">Standard (1000) - Recommandé</option>
+                        <option value="2000">Rapide (2000)</option>
+                        <option value="500">Très Détaillé (500)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="generate-btn" class="generate-btn" disabled>
+                Générer le Résumé <i class="fas fa-magic"></i>
+            </button>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyse du document en cours...</p>
+            </div>
+
+            <div id="result-section" class="result-section hidden">
+                <div class="result-header">
+                    <h2>Votre Résumé</h2>
+                    <div class="actions">
+                        <button id="copy-btn" title="Copier"><i class="fas fa-copy"></i></button>
+                        <button id="download-btn" title="Télécharger"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+                <div class="result-content" id="summary-text">
+                    <!-- Summary will appear here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Propulsé par Gemini AI & Python</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
