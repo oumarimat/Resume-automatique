@@ -1,6 +1,4 @@
 # Resume-automatique
-<h2>🎥 Démonstration vidéo</h2>
-
-<video src="video/resume.mp4" width="600" controls>
-Votre navigateur ne supporte pas la lecture vidéo.
-</video>
+## 🎥 Démonstration vidéo
+👉 Cliquez ici pour voir la vidéo :  
+https://github.com/oumarimat/Resume-automatique/blob/main/video/resume.mp4
